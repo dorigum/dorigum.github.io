@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/navbar.css" type="text/css" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <link rel="stylesheet" href="css/footer.css" type="text/css" />
+    <title>IT's KOSTA - register</title>
+    <style>
+      main {
+        padding: 20px 0px; /*상하 좌우*/
+      }
+      main h1 {
+        text-align: center;
+        padding: 5px;
+      }
+
+      main form {
+        height: 350px;
+        border: 1px solid gray;
+        padding: 40px;
+      }
+
+      main .form-item {
+        margin-bottom: 10px;
+      }
+
+      main .form-item label {
+        display: inline-block;
+        width: 150px;
+        font-size: 18px;
+      }
+
+      main .form-item input {
+        font-size: 18px;
+        border: 1px skyblue solid;
+        width: 200px;
+      }
+
+      main form button {
+        float: right;
+        width: 120px;
+        font-size: 18px;
+        padding: 5px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- 5개의 메뉴 생성 -->
+        <ul>
+          <li class="logo">
+            <a href="index.html"
+              ><img src="images/logo.jpg" alt="로고입니다."
+            /></a>
+          </li>
+          <li><a href="./personal.html">개인</a></li>
+          <li><a href="busines.html">기업</a></li>
+          <li><a href="login.html">로그인</a></li>
+          <li><a href="register.html">회원가입</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="banner">지금 당신의 행복! IT's KOSTA Life!</div>
+
+    <main>
+      <h1>Register</h1>
+      <form action="" method="post" novalidate="novalidate">
+        <div class="form-item">
+          <label for="name">이름</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required="required"
+            autofocus
+          />
+        </div>
+
+        <div class="form-item">
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-item">
+          <label for="phone">연락처</label>
+          <input type="text" id="phone" name="phone" />
+        </div>
+
+        <div class="form-item">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="password" />
+        </div>
+
+        <div class="form-item">
+          <label for="password2">비밀번호 확인</label>
+          <input type="password" id="password2" name="password2" />
+        </div>
+
+        <hr />
+        <button type="button" id="registerBtn">회원 가입</button>
+      </form>
+    </main>
+
+    <footer>
+      <ul>
+        <li>경기도 성남시 오리역 한국소프트웨어진흥협회</li>
+        <li>02-0000-0000</li>
+      </ul>
+    </footer>
+
+    <script>
+      // 1. 회원가입 버튼 가져오기
+      const regBtn = document.getElementById("registerBtn");
+
+      regBtn.addEventListener("click", function () {
+        // 2. HTML에 적어둔 진짜 아이디로 요소들 찾기
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const pwd = document.getElementById('password');
+        const pwdConfirm = document.getElementById('password2');
+
+        // 일일이 실행하지 않고 validateCheck 함수를 만들어서 재사용하기
+        // validateCheck (document.querySelector("#name"));
+        // validateCheck (document.getElementById("email"));
+        // validateCheck (document.getElementById("phone"));
+        // validateCheck (document.getElementById("password"));
+        // validateCheck (document.getElementById("password2"));
+
+
+        // ----------------------------------------------------------
+        let state = true;
+
+        document.querySelectorAll("input").forEach(function (item, index) {
+          // 각 item마다 유효성 체크하기
+          if (validateCheck(item)) { // item은 input 요소
+            return; // 각각의 function이 독립적으로 실행되도록 콜백 함수를 리턴
+          }
+        });
+
+        if(state) {
+          console.log(1);
+
+          if(validateCheck(item)) { // 유효성 체크에서 실패
+            state = false;
+            // return;
+          }
+        }
+
+        // ----------------------------------------------------------
+        // 입력된 내용을 콘솔에 출력
+        console.log(
+          `이름: ${name.value}, 이메일: ${email.value}, 연락처: ${phone.value}, 비밀번호: ${pwd.value}`,
+        );
+
+        // 3. 입력 유무 체크 (빈칸이 하나라도 있으면 안 됨!)
+        const inputs = [name, email, phone, pwd, pwdConfirm];
+
+        for (let i = 0; i < inputs.length; i++) {
+          if (!inputs[i].value) {
+            // 값이 비어있다면
+            alert("값을 입력해주세요.");
+            inputs[i].focus(); // 비어있는 바로 그 칸으로 커서 이동
+            return; // 검사 중단
+          }
+        }
+
+        // 4. 이메일 형식 체크 ('@' 기호가 포함되어 있는지)
+        if (!email.value.includes("@")) {
+          alert("이메일 형식이 아닙니다.");
+          email.focus();
+          return;
+        }
+
+        // 5. 비밀번호와 비밀번호 확인이 똑같은지 체크
+        if (pwd.value !== pwdConfirm.value) {
+          alert("비밀번호가 일치하지 않습니다.");
+          pwd.value = ""; // 첫 번째 패스워드 데이터 지우기
+          pwdConfirm.value = ""; // 두 번째 패스워드 데이터 지우기
+          pwd.focus(); // 첫 번째 패스워드에 커서 놓기
+          return;
+        }
+
+        let validateCheck = function (obj) {
+          if (obj.value === "") {
+            // obj가 이름, 이메일, 연락, 비번....
+            alert("값을 입력해주세요.");
+            obj.focus();
+            return true; // 유효성체크 실패
+          } else {
+            return false; // 유효성체크 성공
+          }
+        }; // validateCheck end
+
+        // 6. 모든 관문을 다 통과했다면? index.html로 전송!
+        const form = document.querySelector("form");
+        form.action = "index.html";
+        form.method = "POST";
+        form.submit();
+
+        // location.href = "index.html"; // submit과 달리 새로고침이 일어나지 않음
+      });
+    </script>
+  </body>
+</html>

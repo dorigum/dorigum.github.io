@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex01_TodoList_UI</title>
+  </head>
+  <body>
+    <div class="App">
+      <div class="Header">
+        <h3>오늘의 Plan📝</h3>
+        <h1 id="date"></h1>
+      </div>
+
+      <form>
+        <div class="Editor">
+          <input type="text" placeholder="새로운 Todo" />
+          <button type="submit">추가</button>
+        </div>
+      </form>
+
+      <div class="List">
+        <h4>Todo List🌱</h4>
+        <input type="text" placeholder="검색어를 입력해주세요."/>
+
+        <div class="todos_wrapper">
+          <div class="TodoItem">
+            <input type="checkbox" />
+            <div class="content">친구랑 점심 먹기</div>
+            <div class="date">2025-03-20</div>
+            <button onClick="this.parentNode.remove();">삭제</button>
+          </div>
+
+          <div class="TodoItem">
+            <input type="checkbox" />
+            <div class="content">저녁에 숙제하기</div>
+            <div class="date">2025-03-20</div>
+            <button onClick="this.parentNode.remove();">삭제</button>
+          </div>
+
+          <div class="TodoItem">
+            <input type="checkbox" />
+            <div class="content">잠자기 전에 일기쓰기</div>
+            <div class="date">2025-03-21</div>
+            <button onClick="this.parentNode.remove();">삭제</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 오늘 날짜
+      const date = new Date();
+
+      // 오늘 요일
+      const week = ["일", "월", "화", "수", "목", "금", "토"];
+
+      // date.getDay()가 숫자를 반환하면, week 배열에서 순서에 맞는 요일을 한글로 출력
+      const dayOfWeek = week[date.getDay()];
+
+      // 오늘 날짜와 요일 전체 출력
+      document.getElementById("date").innerHTML =
+        `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayOfWeek}요일`;
+    </script>
+  </body>
+</html>
