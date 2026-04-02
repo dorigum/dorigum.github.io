@@ -168,7 +168,7 @@
 
         // map 함수를 사용해서 targetId와 일치하는 항목의 isDone 상태를 변경
         mockData = mockData.map((todo) =>
-          todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo,
+          todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo, // ★★★{...todo, isDone: !todo.isDone}★★★ -> Spread
         );
 
         initData(mockData); // 호출(다시 화면 랜더링)

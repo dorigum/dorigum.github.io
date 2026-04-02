@@ -8,7 +8,7 @@ const loadMoreBtn = document.getElementById("loadMoreBtn");
 
 let veggiePage = 0;
 
-// 카드 렌더링 함수
+// 카드 렌더링 함수★★★★★
 function renderProducts(data, container) {
   // data는 과일 또는 야채의 배열
   console.log(data);
@@ -77,7 +77,6 @@ function loadVeggies() {
   // 4. 화면에 다시 출력
   renderProducts(slicedVeggies, veggieList);
 
-  // 이건 추가 기능!!!
   // 만약 준비된 채소를 다 보여줬다면 '더보기' 버튼 숨기기
   if(slicedVeggies.length >= veggies.length) {
     loadMoreBtn.style.display = "none";
