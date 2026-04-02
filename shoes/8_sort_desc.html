@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript sort() 함수 - 객체 내림차순 정렬</title>
+  </head>
+  <body>
+    <h1>JavaScript sort() 함수 - 객체의 price 값 내림차순 정렬</h1>
+
+    <h2>객체의 price 값을 기준으로 내림차순 정렬</h2>
+    <p>
+      객체 배열에서 특정 속성 값을 기준으로 정렬할 때 compareFunction을
+      사용합니다.
+    </p>
+
+    <h2>예제 코드</h2>
+    <pre>
+        const arr = [
+            {name: 'banana', price: 3000}, 
+            {name: 'apple', price: 1000},
+            {name: 'orange', price: 500}
+        ];
+
+        arr.sort(function(a, b) {
+            return b.price - a.price;
+        });
+
+        console.log(arr);  
+        // 0: {name: 'banana', price: 3000}
+        // 1: {name: 'apple', price: 1000}
+        // 2: {name: 'orange', price: 500}
+    </pre>
+
+    <script>
+      // 객체의 price 값을 기준으로 내림차순 정렬
+      const arr = [
+        { name: "banana", price: 3000 },
+        { name: "apple", price: 1000 },
+        { name: "orange", price: 500 },
+      ];
+
+      arr.sort(function (a, b) {
+        return b.price - a.price;
+      });
+
+      console.log("객체의 price 값을 기준으로 내림차순 정렬:", arr);
+    </script>
+  </body>
+</html>

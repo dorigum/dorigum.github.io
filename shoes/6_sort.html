@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript sort() 함수 - 문자열 내림차순 정렬</title>
+  </head>
+  <body>
+    <h1>JavaScript sort() 함수 - 문자열 내림차순 정렬</h1>
+
+    <h2>문자열 내림차순으로 정렬하기</h2>
+    <p>
+      내림차순으로 정렬하기 위해 비교 함수(compareFunction)를 사용하여
+      정렬합니다.
+    </p>
+
+    <h2>예제 코드</h2>
+    <pre>
+        const arr = ['banana', 'b', 'boy'];
+
+        arr.sort(function(a, b) {
+            if (a < b) return 1;
+            if (a > b) return -1;
+            if (a === b) return 0;
+        });
+
+        console.log(arr); // ['boy', 'banana', 'b']
+    </pre>
+
+    <script>
+      // 문자열 내림차순 정렬
+      const arr = ["banana", "b", "boy"];
+      
+      arr.sort(function (a, b) {
+        if (a < b) return 1;
+        if (a > b) return -1;
+        if (a === b) return 0;
+      });
+
+      console.log("문자열 내림차순 정렬:", arr); // ['boy', 'banana', 'b']
+    </script>
+  </body>
+</html>
