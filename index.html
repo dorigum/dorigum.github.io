@@ -10,12 +10,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
-.project-card { transition: transform 0.2s; cursor: pointer; border: 1px solid #ddd; height: 100%; }
-.project-card:hover { transform: scale(1.02); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.project-card { transition: transform 0.2s; cursor: pointer; border: 1px solid #ddd; height: 100%; display: flex; flex-direction: column; }
+.project-card:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.project-content { flex: 1; padding: 16px; }
 .w3-theme-l5 { background-color: #f5f7f8 !important; }
 .project-container { display: flex; flex-wrap: wrap; margin: 0 -8px; }
-.project-item { padding: 8px; width: 50%; }
+.project-item { padding: 8px; width: 33.33%; }
+@media (max-width:992px) { .project-item { width: 50%; } }
 @media (max-width:600px) { .project-item { width: 100%; } }
+.section-title { margin-top: 32px; border-left: 5px solid #607d8b; padding-left: 15px; color: #455a64; }
 </style>
 </head>
 <body class="w3-theme-l5">
@@ -34,7 +37,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   <div class="w3-row">
     <!-- Left Column -->
     <div class="w3-col m3">
-      <!-- Profile -->
+      <!-- Profile Card -->
       <div class="w3-card w3-round w3-white">
         <div class="w3-container w3-padding-16">
          <h4 class="w3-center">My Profile</h4>
@@ -46,70 +49,97 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         </div>
       </div>
       <br>
-      
-      <!-- Interests -->
-      <div class="w3-card w3-round w3-white w3-hide-small">
-        <div class="w3-container w3-padding-16">
-          <p>Skills</p>
-          <p>
-            <span class="w3-tag w3-small w3-theme-d5">React</span>
-            <span class="w3-tag w3-small w3-theme-d4">JavaScript</span>
-            <span class="w3-tag w3-small w3-theme-d3">HTML/CSS</span>
-            <span class="w3-tag w3-small w3-theme-d2">Java</span>
-            <span class="w3-tag w3-small w3-theme-d1">MySQL</span>
-          </p>
-        </div>
-      </div>
     </div>
 
     <!-- Middle Column -->
     <div class="w3-col m9">
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding-24">
-              <h2 class="w3-opacity"><b>My Projects</b></h2>
-              <p>최근 작업한 프로젝트 목록입니다.</p>
-              <hr>
-              
-              <div class="project-container">
-                <!-- Project 1: Todo List -->
-                <div class="project-item">
-                  <div class="w3-card w3-round w3-white project-card">
-                    <div class="w3-container w3-padding-16">
-                      <h3><i class="fa fa-check-square-o w3-margin-right w3-text-blue"></i>Todo List</h3>
-                      <p class="w3-opacity">Vite + React</p>
-                      <p>기본적인 CRUD 기능을 포함한 할 일 관리 애플리케이션입니다.</p>
-                      <a href="./todo-list/index.html" class="w3-button w3-theme-d1 w3-block">View Demo</a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Project 2: Todo List (Reducer) -->
-                <div class="project-item">
-                  <div class="w3-card w3-round w3-white project-card">
-                    <div class="w3-container w3-padding-16">
-                      <h3><i class="fa fa-list-alt w3-margin-right w3-text-blue"></i>Todo Reducer</h3>
-                      <p class="w3-opacity">useReducer + Context API</p>
-                      <p>상태 관리를 위해 useReducer와 Context API를 활용한 버전입니다.</p>
-                      <a href="./todo-list-reducer/index.html" class="w3-button w3-theme-d1 w3-block">View Demo</a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Project 3: JS Todo -->
-                <div class="project-item">
-                  <div class="w3-card w3-round w3-white project-card">
-                    <div class="w3-container w3-padding-16">
-                      <h3><i class="fa fa-code w3-margin-right w3-text-green"></i>Vanilla JS Todo</h3>
-                      <p class="w3-opacity">Pure JavaScript</p>
-                      <p>순수 자바스크립트로 구현한 할 일 목록입니다.</p>
-                      <a href="./Todo_List_Project/ex03_TodoList_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
-                    </div>
-                  </div>
-                </div>
+      <div class="w3-container w3-card w3-round w3-white w3-padding-32" style="margin-left: 16px;">
+        <h1 class="w3-opacity"><b>PolarBear's Project Portfolio</b></h1>
+        <p>자바스크립트와 리액트를 활용한 다양한 웹 프로젝트들입니다.</p>
+        
+        <!-- Section 1: React Projects -->
+        <h2 class="section-title"><b>React Projects</b></h2>
+        <div class="project-container">
+          <!-- Todo List -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-check-square-o w3-margin-right w3-text-blue"></i>Todo List</h3>
+                <p class="w3-opacity">Vite + React</p>
+                <p>기본적인 CRUD 기능을 포함한 할 일 관리 애플리케이션입니다.</p>
               </div>
+              <a href="./todo-list/index.html" class="w3-button w3-theme-d1 w3-block">View Demo</a>
+            </div>
+          </div>
+          <!-- Todo Reducer -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-list-alt w3-margin-right w3-text-blue"></i>Todo Reducer</h3>
+                <p class="w3-opacity">Reducer + Context</p>
+                <p>useReducer와 Context API를 활용한 상태 관리 예제입니다.</p>
+              </div>
+              <a href="./todo-list-reducer/index.html" class="w3-button w3-theme-d1 w3-block">View Demo</a>
+            </div>
+          </div>
+        </div>
 
+        <!-- Section 2: Vanilla JS Projects -->
+        <h2 class="section-title"><b>JavaScript Projects</b></h2>
+        <div class="project-container">
+          <!-- myShop -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-shopping-cart w3-margin-right w3-text-green"></i>myShop</h3>
+                <p class="w3-opacity">JS Shopping Mall</p>
+                <p>상품 목록과 장바구니 기능을 구현한 쇼핑몰 프로젝트입니다.</p>
+              </div>
+              <a href="./myShop/index.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
+            </div>
+          </div>
+          <!-- Movie -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-film w3-margin-right w3-text-red"></i>Movie Info</h3>
+                <p class="w3-opacity">API + JavaScript</p>
+                <p>영화 API를 연동하여 상세 정보를 검색하고 확인합니다.</p>
+              </div>
+              <a href="./Movie/Movie_Info_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
+            </div>
+          </div>
+          <!-- Shoes -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-tags w3-margin-right w3-text-orange"></i>Shoe Project</h3>
+                <p class="w3-opacity">JS Product List</p>
+                <p>신발 상품 목록과 필터링 기능을 담은 프로젝트입니다.</p>
+              </div>
+              <a href="./shoes/Shoe_Project_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
+            </div>
+          </div>
+          <!-- Todo JS -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-code w3-margin-right w3-text-grey"></i>Vanilla Todo</h3>
+                <p class="w3-opacity">Pure JavaScript</p>
+                <p>자바스크립트의 기본 기능으로만 구현한 할 일 목록입니다.</p>
+              </div>
+              <a href="./Todo_List_Project/ex03_TodoList_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
+            </div>
+          </div>
+          <!-- WS_03 -->
+          <div class="project-item">
+            <div class="w3-card w3-round w3-white project-card">
+              <div class="project-content">
+                <h3><i class="fa fa-book w3-margin-right w3-text-purple"></i>WS_03 Workshop</h3>
+                <p class="w3-opacity">Workshop Task</p>
+                <p>자바스크립트 기본기를 다지기 위한 과제 수행 프로젝트입니다.</p>
+              </div>
+              <a href="./WS_03/WS_03_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
             </div>
           </div>
         </div>
@@ -118,8 +148,8 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     <!-- End Middle Column -->
   </div>
 </div>
-<br>
 
+<br>
 <!-- Footer -->
 <footer class="w3-container w3-theme-d5 w3-padding-16 w3-center">
   <p>Copyright 2026. PolarBear all rights reserved.</p>
