@@ -5,20 +5,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+/* Light Pink Theme Colors */
+:root {
+  --theme-l5: #fff0f5; /* LavenderBlush */
+  --theme-l4: #ffe4e1; /* MistyRose */
+  --theme-l2: #ffb6c1; /* LightPink */
+  --theme-main: #ff99aa;
+  --theme-d2: #ff7788;
+  --theme-d4: #ff5566;
+  --theme-d5: #ff4455;
+}
+
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
-.project-card { transition: transform 0.2s; cursor: pointer; border: 1px solid #ddd; height: 100%; display: flex; flex-direction: column; }
-.project-card:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+body { background-color: var(--theme-l5) !important; }
+
+/* Custom Theme Classes Overrides */
+.w3-theme-d2 { background-color: var(--theme-d2) !important; color: #fff !important; }
+.w3-theme-d4 { background-color: var(--theme-d4) !important; color: #fff !important; }
+.w3-theme-d5 { background-color: var(--theme-d5) !important; color: #fff !important; }
+.w3-theme-l4 { background-color: var(--theme-l4) !important; }
+.w3-theme-l1 { background-color: var(--theme-l2) !important; }
+.w3-theme-action { background-color: var(--theme-main) !important; color: #fff !important; }
+
+.project-card { transition: transform 0.2s; cursor: pointer; border: 1px solid #ffccd5; height: 100%; display: flex; flex-direction: column; background: #fff; }
+.project-card:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4); }
 .project-content { flex: 1; padding: 16px; }
-.w3-theme-l5 { background-color: #f5f7f8 !important; }
 .project-container { display: flex; flex-wrap: wrap; margin: 0 -8px; }
 .project-item { padding: 8px; width: 33.33%; }
 @media (max-width:992px) { .project-item { width: 50%; } }
 @media (max-width:600px) { .project-item { width: 100%; } }
-.section-title { margin-top: 32px; border-left: 5px solid #607d8b; padding-left: 15px; color: #455a64; }
+
+.section-title { margin-top: 32px; border-left: 5px solid var(--theme-main); padding-left: 15px; color: var(--theme-d4); }
+.w3-tag { background-color: var(--theme-main) !important; color: white !important; }
+.w3-button.w3-theme-d1 { background-color: var(--theme-main) !important; color: white !important; }
+.w3-button.w3-theme-d1:hover { background-color: var(--theme-d2) !important; }
+.w3-button.w3-theme-l3 { background-color: var(--theme-l4) !important; color: #333 !important; }
+.w3-button.w3-theme-l3:hover { background-color: var(--theme-l2) !important; }
 </style>
 </head>
 <body class="w3-theme-l5">
@@ -43,39 +68,51 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
          <h4 class="w3-center">My Profile</h4>
          <p class="w3-center"><img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Junior Developer</p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Seoul, Korea</p>
-         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme"></i> kkamang03@gmail.com</p>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme" style="color:var(--theme-main)!important"></i> Junior Developer</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme" style="color:var(--theme-main)!important"></i> Seoul, Korea</p>
+         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme" style="color:var(--theme-main)!important"></i> kkamang03@gmail.com</p>
         </div>
       </div>
       <br>
+      
+      <!-- Skills -->
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container w3-padding-16">
+          <p>Skills</p>
+          <p>
+            <span class="w3-tag w3-small">React</span>
+            <span class="w3-tag w3-small">JavaScript</span>
+            <span class="w3-tag w3-small">HTML/CSS</span>
+            <span class="w3-tag w3-small">Java</span>
+            <span class="w3-tag w3-small">MySQL</span>
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Middle Column -->
     <div class="w3-col m9">
       <div class="w3-container w3-card w3-round w3-white w3-padding-32" style="margin-left: 16px;">
-        <h1 class="w3-opacity"><b>PolarBear's Project Portfolio</b></h1>
+        <h1 class="w3-opacity" style="color:var(--theme-d4)"><b>PolarBear's Project Portfolio</b></h1>
         <p>자바스크립트와 리액트를 활용한 다양한 웹 프로젝트들입니다.</p>
         
         <!-- Section 1: React Projects -->
         <h2 class="section-title"><b>React Projects</b></h2>
         <div class="project-container">
-          <!-- Todo List -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-check-square-o w3-margin-right w3-text-blue"></i>Todo List</h3>
+                <h3><i class="fa fa-check-square-o w3-margin-right" style="color:var(--theme-main)"></i>Todo List</h3>
                 <p class="w3-opacity">Vite + React</p>
                 <p>기본적인 CRUD 기능을 포함한 할 일 관리 애플리케이션입니다.</p>
               </div>
               <a href="./todo-list/index.html" class="w3-button w3-theme-d1 w3-block">View Demo</a>
             </div>
           </div>
-          <!-- Todo Reducer -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-list-alt w3-margin-right w3-text-blue"></i>Todo Reducer</h3>
+                <h3><i class="fa fa-list-alt w3-margin-right" style="color:var(--theme-main)"></i>Todo Reducer</h3>
                 <p class="w3-opacity">Reducer + Context</p>
                 <p>useReducer와 Context API를 활용한 상태 관리 예제입니다.</p>
               </div>
@@ -84,58 +121,53 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           </div>
         </div>
 
-        <!-- Section 2: Vanilla JS Projects -->
+        <!-- Section 2: JavaScript Projects -->
         <h2 class="section-title"><b>JavaScript Projects</b></h2>
         <div class="project-container">
-          <!-- myShop -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-shopping-cart w3-margin-right w3-text-green"></i>myShop</h3>
+                <h3><i class="fa fa-shopping-cart w3-margin-right" style="color:var(--theme-main)"></i>myShop</h3>
                 <p class="w3-opacity">JS Shopping Mall</p>
                 <p>상품 목록과 장바구니 기능을 구현한 쇼핑몰 프로젝트입니다.</p>
               </div>
               <a href="./myShop/index.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
             </div>
           </div>
-          <!-- Movie -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-film w3-margin-right w3-text-red"></i>Movie Info</h3>
+                <h3><i class="fa fa-film w3-margin-right" style="color:var(--theme-main)"></i>Movie Info</h3>
                 <p class="w3-opacity">API + JavaScript</p>
                 <p>영화 API를 연동하여 상세 정보를 검색하고 확인합니다.</p>
               </div>
               <a href="./Movie/Movie_Info_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
             </div>
           </div>
-          <!-- Shoes -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-tags w3-margin-right w3-text-orange"></i>Shoe Project</h3>
+                <h3><i class="fa fa-tags w3-margin-right" style="color:var(--theme-main)"></i>Shoe Project</h3>
                 <p class="w3-opacity">JS Product List</p>
                 <p>신발 상품 목록과 필터링 기능을 담은 프로젝트입니다.</p>
               </div>
               <a href="./shoes/Shoe_Project_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
             </div>
           </div>
-          <!-- Todo JS -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-code w3-margin-right w3-text-grey"></i>Vanilla Todo</h3>
+                <h3><i class="fa fa-code w3-margin-right" style="color:var(--theme-main)"></i>JavaScript Todo</h3>
                 <p class="w3-opacity">Pure JavaScript</p>
                 <p>자바스크립트의 기본 기능으로만 구현한 할 일 목록입니다.</p>
               </div>
               <a href="./Todo_List_Project/ex03_TodoList_JS.html" class="w3-button w3-theme-l3 w3-block">View Demo</a>
             </div>
           </div>
-          <!-- WS_03 -->
           <div class="project-item">
             <div class="w3-card w3-round w3-white project-card">
               <div class="project-content">
-                <h3><i class="fa fa-book w3-margin-right w3-text-purple"></i>WS_03 Workshop</h3>
+                <h3><i class="fa fa-book w3-margin-right" style="color:var(--theme-main)"></i>WS_03 Workshop</h3>
                 <p class="w3-opacity">Workshop Task</p>
                 <p>자바스크립트 기본기를 다지기 위한 과제 수행 프로젝트입니다.</p>
               </div>
@@ -145,12 +177,10 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         </div>
       </div>
     </div>
-    <!-- End Middle Column -->
   </div>
 </div>
 
 <br>
-<!-- Footer -->
 <footer class="w3-container w3-theme-d5 w3-padding-16 w3-center">
   <p>Copyright 2026. PolarBear all rights reserved.</p>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
